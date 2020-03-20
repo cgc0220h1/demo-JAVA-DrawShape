@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class Shape {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int choice;
+        int choiceMenu;
         int width;
         int height;
         int length;
 
         do {
+            boolean isValidNum = false;
+            boolean isValidChoice = false;
+            int choicePosition;
+
             System.out.println("Menu");
             System.out.println("1. Draw the rectangle");
             System.out.println("2. Draw the square");
@@ -16,16 +20,26 @@ public class Shape {
             System.out.println("4. Draw the isosceles triangle");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
+            choiceMenu = scanner.nextInt();
             System.out.println();
 
-            switch (choice) {
+            switch (choiceMenu) {
                 case 1:
                     System.out.println("Draw the rectangle!");
-                    System.out.print("Enter width: ");
-                    width = scanner.nextInt();
-                    System.out.print("Enter height: ");
-                    height = scanner.nextInt();
+
+                    do {
+                        System.out.print("Enter width: ");
+                        width = scanner.nextInt();
+                        System.out.print("Enter height: ");
+                        height = scanner.nextInt();
+                        if (width > 2 && height > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
                     System.out.println("Here, let me draw it for you: \n");
 
                     for (int row = 0; row < height; row++) {
@@ -34,11 +48,22 @@ public class Shape {
                         }
                         System.out.println();
                     }
+
                     break;
                 case 2:
                     System.out.println("Draw the square!");
-                    System.out.print("Enter length of square's side: ");
-                    length = scanner.nextInt();
+
+                    do {
+                        System.out.print("Enter length of square's side: ");
+                        length = scanner.nextInt();
+                        if (length > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
                     System.out.println("Here, let me draw it for you: \n");
 
                     for (int row = 0; row < length; row++) {
@@ -58,9 +83,6 @@ public class Shape {
                     System.out.println("4. bottom-right");
                     System.out.println("0. Back");
 
-                    boolean isValid = false;
-                    int choicePosition;
-
                     do {
                         System.out.print("Enter your choice: ");
                         choicePosition = scanner.nextInt();
@@ -69,21 +91,30 @@ public class Shape {
                                 choicePosition == 2 ||
                                 choicePosition == 3 ||
                                 choicePosition == 4) {
-                            isValid = true;
+                            isValidChoice = true;
                         }
-
-                        if (!isValid) {
+                        if (!isValidChoice) {
                             System.out.println("Invalid choice!. Please choose again, or choose 0 to back");
                         }
-                    } while (!isValid);
+                    } while (!isValidChoice);
 
                     if (choicePosition == 0) {
                         break;
                     }
 
                     System.out.println();
-                    System.out.print("Enter length of triangle's side: ");
-                    length = scanner.nextInt();
+
+                    do {
+                        System.out.print("Enter length of triangle's side: ");
+                        length = scanner.nextInt();
+                        if (length > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
                     System.out.println("Here, let me draw it for you: \n");
 
                     switch (choicePosition) {
@@ -131,8 +162,18 @@ public class Shape {
                     break;
                 case 4:
                     System.out.println("Draw the isosceles triangle!");
-                    System.out.print("Enter length of triangle's side: ");
-                    length = scanner.nextInt();
+
+                    do {
+                        System.out.print("Enter length of triangle's side: ");
+                        length = scanner.nextInt();
+                        if (length > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
                     System.out.println("Here, let me draw it for you: \n");
 
                     for (int row = 1; row <= length; row++) {
@@ -153,6 +194,6 @@ public class Shape {
                     System.out.println("Invalid choice! Please choose again or choose 0 to Exit!");
             }
             System.out.println();
-        } while (choice != 0);
+        } while (choiceMenu != 0);
     }
 }
