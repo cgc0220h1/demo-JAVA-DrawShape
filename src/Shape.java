@@ -13,6 +13,7 @@ public class Shape {
             System.out.println("1. Draw the rectangle");
             System.out.println("2. Draw the square");
             System.out.println("3. Draw the isosceles right triangle");
+            System.out.println("4. Draw the isosceles triangle");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -126,6 +127,22 @@ public class Shape {
                             break;
                         default:
                             break;
+                    }
+                    break;
+                case 4:
+                    System.out.println("Draw the isosceles triangle!");
+                    System.out.print("Enter length of triangle's side: ");
+                    length = scanner.nextInt();
+                    System.out.println("Here, let me draw it for you: \n");
+
+                    for (int row = 1; row <= length; row++) {
+                        for (int whiteSpace = length; whiteSpace > row; whiteSpace--) {
+                            System.out.print("\t");
+                        }
+                        for (int asterisk = 1; asterisk <= row; asterisk++) {
+                            System.out.print("* \t \t");
+                        }
+                        System.out.println();
                     }
                     break;
                 case 0:
