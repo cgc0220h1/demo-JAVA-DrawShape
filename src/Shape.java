@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class Shape {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int choice = 1;
+        int choice;
         int width;
         int height;
         int length;
 
-        while (choice != 0) {
+        do {
             System.out.println("Menu");
             System.out.println("1. Draw the rectangle");
             System.out.println("2. Draw the square");
@@ -26,8 +26,9 @@ public class Shape {
                     System.out.print("Enter height: ");
                     height = scanner.nextInt();
                     System.out.println("Here, let me draw it for you: \n");
-                    for (int indexOuter = 0; indexOuter < height; indexOuter++) {
-                        for (int indexInner = 0; indexInner < width; indexInner++) {
+
+                    for (int row = 0; row < height; row++) {
+                        for (int asterisk = 0; asterisk < width; asterisk++) {
                             System.out.print("* \t");
                         }
                         System.out.println();
@@ -38,12 +39,14 @@ public class Shape {
                     System.out.print("Enter length of square's side: ");
                     length = scanner.nextInt();
                     System.out.println("Here, let me draw it for you: \n");
-                    for (int indexOuter = 0; indexOuter < length; indexOuter++) {
-                        for (int indexInner = 0; indexInner < length; indexInner++) {
+
+                    for (int row = 0; row < length; row++) {
+                        for (int asterisk = 0; asterisk < length; asterisk++) {
                             System.out.print("* \t");
                         }
                         System.out.println();
                     }
+
                     break;
                 case 3:
                     System.out.println("Draw the isosceles right triangle!");
@@ -65,7 +68,7 @@ public class Shape {
                                 choicePosition == 2 ||
                                 choicePosition == 3 ||
                                 choicePosition == 4) {
-                                isValid = true;
+                            isValid = true;
                         }
 
                         if (!isValid) {
@@ -84,38 +87,38 @@ public class Shape {
 
                     switch (choicePosition) {
                         case 1:
-                            for (int indexOuter = length; indexOuter > 0; indexOuter--) {
-                                for (int indexInner = 1; indexInner <= indexOuter; indexInner++) {
+                            for (int row = 1; row <= length; row++) {
+                                for (int asterisk = length; asterisk >= row; asterisk--) {
                                     System.out.print("* \t");
                                 }
                                 System.out.println();
                             }
                             break;
                         case 2:
-                            for (int indexOuter = length; indexOuter > 0; indexOuter--) {
-                                for (int indexWhite = 0; indexWhite < Math.abs(indexOuter - length); indexWhite++) {
+                            for (int row = 1; row <= length; row++) {
+                                for (int whiteSpace = 1; whiteSpace < row; whiteSpace++) {
                                     System.out.print("\t");
                                 }
-                                for (int indexInner = 1; indexInner <= indexOuter; indexInner++) {
+                                for (int asterisk = length; asterisk >= row; asterisk--) {
                                     System.out.print("* \t");
                                 }
                                 System.out.println();
                             }
                             break;
                         case 3:
-                            for (int indexOuter = 1; indexOuter <= length; indexOuter++) {
-                                for (int indexInner = 1; indexInner <= indexOuter; indexInner++) {
+                            for (int row = 1; row <= length; row++) {
+                                for (int asterisk = 1; asterisk <= row; asterisk++) {
                                     System.out.print("* \t");
                                 }
                                 System.out.println();
                             }
                             break;
                         case 4:
-                            for (int indexOuter = 1; indexOuter <= length; indexOuter++) {
-                                for (int indexWhite = length; indexWhite > indexOuter; indexWhite--) {
+                            for (int row = 1; row <= length; row++) {
+                                for (int whiteSpace = length; whiteSpace > row; whiteSpace--) {
                                     System.out.print("\t");
                                 }
-                                for (int indexInner = 1; indexInner <= indexOuter; indexInner++) {
+                                for (int asterisk = 1; asterisk <= row; asterisk++) {
                                     System.out.print("* \t");
                                 }
                                 System.out.println();
@@ -133,6 +136,6 @@ public class Shape {
                     System.out.println("Invalid choice! Please choose again or choose 0 to Exit!");
             }
             System.out.println();
-        }
+        } while (choice != 0);
     }
 }
