@@ -18,6 +18,8 @@ public class Shape {
             System.out.println("2. Draw the square");
             System.out.println("3. Draw the isosceles right triangle");
             System.out.println("4. Draw the isosceles triangle");
+            System.out.println("5. Draw the number triangle");
+            System.out.println("6. Draw the number triangle type 2");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choiceMenu = scanner.nextInt();
@@ -178,10 +180,62 @@ public class Shape {
 
                     for (int row = 1; row <= length; row++) {
                         for (int whiteSpace = length; whiteSpace > row; whiteSpace--) {
-                            System.out.print("\t");
+                            System.out.print(" ");
                         }
                         for (int asterisk = 1; asterisk <= row; asterisk++) {
-                            System.out.print("* \t \t");
+                            System.out.print("* ");
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 5:
+                    System.out.println("Draw the number triangle!");
+
+                    do {
+                        System.out.print("Enter length of triangle's side: ");
+                        length = scanner.nextInt();
+                        if (length > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
+                    System.out.println("Here, let me draw it for you: \n");
+
+                    for (int row = 1, display = 1; row <= length + 4; row += 2, display++) {
+                        for (int whiteSpace = length; whiteSpace > display; whiteSpace--) {
+                            System.out.print(" ");
+                        }
+                        for (int number = 1; number <= row; number++) {
+                            System.out.printf("%d", display);
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 6:
+                    System.out.println("Draw the number triangle type 2!");
+
+                    do {
+                        System.out.print("Enter length of triangle's side: ");
+                        length = scanner.nextInt();
+                        if (length > 2) {
+                            isValidNum = true;
+                        }
+                        if (!isValidNum) {
+                            System.out.println("I can't draw that!. Please enter again. Minimum is 2!");
+                        }
+                    } while (!isValidNum);
+
+                    System.out.println("Here, let me draw it for you: \n");
+
+                    for (int row = 1, display = 1; row <= length + 4; row += 2, display++) {
+                        for (int whiteSpace = length; whiteSpace > display; whiteSpace--) {
+                            System.out.print(" ");
+                        }
+                        for (int number = 1; number <= row; number++) {
+                            System.out.printf("%d", display);
                         }
                         System.out.println();
                     }
