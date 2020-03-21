@@ -194,7 +194,7 @@ public class Shape {
                     do {
                         System.out.print("Enter length of triangle's side: ");
                         length = scanner.nextInt();
-                        if (length > 2) {
+                        if (length > 2 && length <10) {
                             isValidNum = true;
                         }
                         if (!isValidNum) {
@@ -220,7 +220,7 @@ public class Shape {
                     do {
                         System.out.print("Enter length of triangle's side: ");
                         length = scanner.nextInt();
-                        if (length > 2) {
+                        if (length > 2 && length <10) {
                             isValidNum = true;
                         }
                         if (!isValidNum) {
@@ -230,12 +230,15 @@ public class Shape {
 
                     System.out.println("Here, let me draw it for you: \n");
 
-                    for (int row = 1, display = 1; row <= length + 4; row += 2, display++) {
-                        for (int whiteSpace = length; whiteSpace > display; whiteSpace--) {
+                    for (int row = 1; row <= length; row++) {
+                        for (int whiteSpace = length; whiteSpace > row; whiteSpace--) {
                             System.out.print(" ");
                         }
-                        for (int number = 1; number <= row; number++) {
-                            System.out.printf("%d", display);
+                        for (int number = 1, displayIn = row; number <= row; number++, displayIn--) {
+                            System.out.printf("%d", displayIn);
+                        }
+                        for (int number = 1, displayOut = 2; number <= row-1; number++, displayOut++) {
+                            System.out.printf("%d", displayOut);
                         }
                         System.out.println();
                     }
